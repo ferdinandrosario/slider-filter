@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school_name: MyString
+  us_news_ranking: 1
+  acceptance_rate: 1
+  LSAT: 1
+  GPA: 1.5
+  Total_applications: 1
+
+two:
+  school_name: MyString
+  us_news_ranking: 1
+  acceptance_rate: 1
+  LSAT: 1
+  GPA: 1.5
+  Total_applications: 1
