@@ -8,8 +8,11 @@ class SchoolsController < ApplicationController
   end
 
   def get_data
-     p @schools =  School.all.select("us_news_ranking").to_json
-     render :nothing => true
+     @schools =  School.all.select("us_news_ranking","LSAT")
+    respond_to do |format|
+        format.json { render json: @schools }
+    end
+     # render :nothing => true
   end
   # GET /schools/1
   # GET /schools/1.json

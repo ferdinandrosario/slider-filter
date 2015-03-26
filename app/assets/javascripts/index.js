@@ -1,6 +1,8 @@
 $(document).ready(function(){
 
   initSliders();
+
+  get_data()
   //NOTE: To append in different container
   var appendToContainer = function(htmlele, record){
     console.log(record)
@@ -56,6 +58,15 @@ $(document).ready(function(){
   window.FJS = FJS;
 });
 
+function get_data(){
+     $.ajax({
+    url: "/get_data",
+    success: function(data) {
+       // alert(JSON.stringify(data))
+       return false;
+    }
+  });
+}
 function initSliders(){
   $("#rating_slider").slider({
     min: 8,
