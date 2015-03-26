@@ -1,59 +1,35 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <title>JsSlider</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
-
+  <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar col-span-3">
-      <div class="row">
-        <h4 class="col-span-6"> Movies (<span id="total_movies">250</span>)</h4>
-        <div class="col-span-6 progress">
-          <div class="progress-bar" id="stream_progress" style="width: 0%">0 %</div>
+
+<%= yield %>
+
+<script id="movie-template" type="text/html">
+<div class="col-span-4 movie">
+  <div class="thumbnail">
+    <span class="label label-success rating"><%%= rating %>
+      <i class="glyphicon glyphicon-star"></i>
+    </span>
+    <div class="caption">
+      <h4><%%= name %></h4>
+      <div class="outline">
+        <%%= outline %>
+        <span class="runtime">
+          <i class="glyphicon glyphicon-time"></i>
+          <%%= runtime %> mins.
+        </span>
+      </div>
+        <div class="detail">
         </div>
       </div>
-
-      <div class="criteria" id="rating_criteria">
-        <h4>Rating</h4>
-        <span id="rating_range_label" class="slider-label">8 - 10</span>
-        <div id="rating_slider" class="slider"></div>
-        <input type="hidden" id="rating_filter" value="8-10"/>
-      </div>
-      <div class="criteria" id="runtime_criteria">
-        <h4>Runtime</h4>
-        <span id="runtime_range_label" class="slider-label">50 mins - 250 mins</span>
-        <div id="runtime_slider" class="slider"></div>
-        <input type="hidden" id="runtime_filter" value="50-250">
-      </div>
     </div>
-    <div class="sorting content col-span-9">
-    </div>
-    <div class="movies content col-span-9" id="movies">
-    </div>
-    <script id="movie-template" type="text/html">
-      <div class="col-span-4 movie">
-        <div class="thumbnail">
-          <span class="label label-success rating"><%%= rating %>
-            <i class="glyphicon glyphicon-star"></i>
-          </span>
-          <div class="caption">
-            <h4><%%= name %></h4>
-            <div class="outline">
-              <%%= outline %>
-              <span class="runtime">
-                <i class="glyphicon glyphicon-time"></i>
-                <%%= runtime %> mins.
-              </span>
-            </div>
-              <div class="detail">
-              </div>
-            </div>
-          </div>
-        </div>
-      </script>
-    </body>
-    </html>
-
+  </div>
+</script>
+</body>
+</html>

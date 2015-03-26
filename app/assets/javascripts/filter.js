@@ -1,27 +1,3 @@
-/*
- * filter.js
- * 2.0.0 (2015-02-26)
- *
- * Released under the MIT license
- * http://opensource.org/licenses/MIT
- *
- * Copyright 2011-2015 Jiren Patel[jirenpatel@gmail.com]
- *
- * Dependency:
- *  jQuery(v1.9 >=)
- */
- 
- /*
- * JsonQuery
- * version: 0.0.2 (15/8/2014)
- *
- * Licensed under the MIT:
- *   http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2014 Jiren Patel[jirenpatel@gmail.com]
- *
- */
-
 (function(window) {
 
   'use strict';
@@ -889,7 +865,7 @@ F.removeRecords = function(criteria){
     return false;
   }
 
-  var records = this.Model.records, 
+  var records = this.Model.records,
       removedCount = 0,
       idsLength = ids.length,
       fid;
@@ -902,7 +878,7 @@ F.removeRecords = function(criteria){
       removedCount ++;
 
       $('#fjs_' + fid).remove();
-    } 
+    }
 
     if(removedCount == idsLength){
       break;
@@ -1072,7 +1048,7 @@ F.lastResult = function(){
 };
 
 F.filter = function(){
-  var query = {}, 
+  var query = {},
       vals, _q,
       count = 0,
       self = this;

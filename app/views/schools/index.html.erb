@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="sidebar col-span-3">
+    <div class="row">
+      <h4 class="col-span-6"> Movies (<span id="total_movies">250</span>)</h4>
+      <div class="col-span-6 progress">
+        <div class="progress-bar" id="stream_progress" style="width: 0%">0 %</div>
+      </div>
+    </div>
+
+    <div class="criteria" id="rating_criteria">
+      <h4>Rating</h4>
+      <span id="rating_range_label" class="slider-label">8 - 10</span>
+      <div id="rating_slider" class="slider"></div>
+      <input type="hidden" id="rating_filter" value="8-10"/>
+    </div>
+    <div class="criteria" id="runtime_criteria">
+      <h4>Runtime</h4>
+      <span id="runtime_range_label" class="slider-label">50 mins - 250 mins</span>
+      <div id="runtime_slider" class="slider"></div>
+      <input type="hidden" id="runtime_filter" value="50-250">
+    </div>
+  </div>
+  <div class="sorting content col-span-9">
+  </div>
+  <div class="movies content col-span-9" id="movies">
+  </div>
