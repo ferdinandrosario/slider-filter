@@ -7,13 +7,6 @@ class SchoolsController < ApplicationController
     @schools = School.all
   end
 
-  def get_data
-     @schools =  School.all.select("us_news_ranking","LSAT")
-    respond_to do |format|
-        format.json { render json: @schools }
-    end
-     # render :nothing => true
-  end
   # GET /schools/1
   # GET /schools/1.json
   def show

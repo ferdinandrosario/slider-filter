@@ -3,14 +3,11 @@
 <head>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => false %>
-  <!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js" ></script> -->
-  <!-- // <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js" ></script> -->
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => false %>
 
 </head>
 <body>
   <div class="container">
-    <h1 class="title">Filter.js</h1>
     <div class="sidebar col-span-3">
       <div class="row">
         <h4 class="col-span-6"> Movies (<span id="total_movies">250</span>)</h4>
@@ -43,12 +40,12 @@
             <i class="glyphicon glyphicon-star"></i>
           </span>
           <div class="caption">
-            <h4><%#= name %></h4>
+            <h4><%%= name %></h4>
             <div class="outline">
-              <%#= outline %>
+              <%%= outline %>
               <span class="runtime">
                 <i class="glyphicon glyphicon-time"></i>
-                <%#= runtime %> mins.
+                <%%= runtime %> mins.
               </span>
             </div>
               <div class="detail">
