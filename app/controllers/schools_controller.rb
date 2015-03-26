@@ -8,9 +8,9 @@ class SchoolsController < ApplicationController
   end
 
   def get_data
-     @schools =  School.all.select("us_news_ranking","LSAT")
+     @schools =  School.all.select("id","us_news_ranking","LSAT")
     respond_to do |format|
-        format.json { render json: @schools }
+        format.json {         render :json => { :school_data => @schools }}
     end
      # render :nothing => true
   end

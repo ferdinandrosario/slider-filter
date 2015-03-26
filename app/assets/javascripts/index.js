@@ -1,17 +1,17 @@
+var school_data;
 $(document).ready(function(){
 
   initSliders();
+  // get_data();
 
-  get_data()
+
   //NOTE: To append in different container
   var appendToContainer = function(htmlele, record){
     console.log(record)
   };
 
-  var FJS = FilterJS(movies, '#movies', {
+  var FJS = FilterJS(school_data, '#movies', {
     template: '#movie-template',
-    search: {ele: '#searchbox'},
-    //search: {ele: '#searchbox', fields: ['runtime']}, // With specific fields
     callbacks: {
       afterFilter: function(result){
         $('#total_movies').text(result.length);
@@ -23,55 +23,53 @@ $(document).ready(function(){
   FJS.addCallback('beforeAddRecords', function(){
     if(this.recordsCount >= 450){
       this.stopStreaming();
+      alert(1);
     }
   });
 
   FJS.addCallback('afterAddRecords', function(){
     var percent = (this.recordsCount - 250)*100/250;
-
+    alert(1);
     $('#stream_progress').text(percent + '%').attr('style', 'width: '+ percent +'%;');
 
     if (percent == 100){
       $('#stream_progress').parent().fadeOut(1000);
     }
   });
+    // $(".container").click(function(){
+    //   console.log(school_data);
+    // });
 
   FJS.setStreaming({
-    data_url: '/assets/data/stream_movies.json',
+
+    data_url: '/get_data',
     stream_after: 1,
-    batch_size: 50
+    batch_size: 10
   });
 
   // FJS.addCriteria({field: 'year', ele: '#year_filter', type: 'range', all: 'all'});
-  FJS.addCriteria({field: 'rating', ele: '#rating_filter', type: 'range'});
-  FJS.addCriteria({field: 'runtime', ele: '#runtime_filter', type: 'range'});
+  FJS.addCriteria({field: 'us_news_ranking', ele: '#us_news_ranking_filter', type: 'range'});
+  FJS.addCriteria({field: 'LSAT', ele: '#LSAT_filter', type: 'range'});
   // FJS.addCriteria({field: 'genre', ele: '#genre_criteria input:checkbox'});
-
-  /*
-   * Add multiple criterial.
-    FJS.addCriteria([
-      {field: 'genre', ele: '#genre_criteria input:checkbox'},
-      {field: 'year', ele: '#year_filter', type: 'range'}
-    ])
-  */
 
   window.FJS = FJS;
 });
 
 function get_data(){
-     $.ajax({
-    url: "/get_data",
-    success: function(data) {
-       // alert(JSON.stringify(data))
-       return false;
-    }
-  });
+
+    $.ajax({
+      url: "/get_data",
+      success: function(data) {
+        school_data = data
+        // alert(JSON.stringify(school_data));
+      }
+    });
 }
 function initSliders(){
   $("#rating_slider").slider({
-    min: 8,
+    min: 5,
     max: 10,
-    values:[8, 10],
+    values:[5, 10],
     step: 0.1,
     range:true,
     slide: function( event, ui ) {
@@ -81,7 +79,7 @@ function initSliders(){
   });
 
   $("#runtime_slider").slider({
-    min: 50,
+    min: 10,
     max: 250,
     values:[0, 250],
     step: 10,
